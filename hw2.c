@@ -8,9 +8,9 @@ void menu()// 顯示主選單
     printf("|                        |\n");
     printf("|                        |\n");
     printf("|                        |\n");
-    printf("|  a.     |\n");
-    printf("|  b.         |\n");
-    printf("|  c.                |\n");
+    printf("|  a. 畫出直角三角形     |\n");
+    printf("|  b. 顯示乘法表        |\n");
+    printf("|  c. 結束              |\n");
     printf("|                        |\n");
     printf("|                        |\n");
     printf("--------------------------\n");

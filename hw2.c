@@ -68,7 +68,7 @@ int main() {
     {
         // 清除螢幕，並顯示主選單
         system("cls");
-        menu()
+        menu();
 
         printf("請輸入您的選擇 (a, b, c): ");
         choice = getch();

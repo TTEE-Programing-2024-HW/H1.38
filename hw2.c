@@ -45,7 +45,7 @@ int main() {
 
 
     // 輸入密碼
-    for (i = 0; i < 3; i++) {
+    for (i = 0; i < 3; i++) {//密碼輸入不超過三次 
         printf("請輸入密碼 (4 位數字): ");
         scanf("%d", &input_password);
 

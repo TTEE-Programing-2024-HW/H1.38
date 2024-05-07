@@ -2,7 +2,7 @@
 #include <conio.h> // 這個標頭檔包含了getch()函數
 
 
-void menu()
+void menu()// 顯示主選單
 { 
     printf("--------------------------\n");
     printf("|                        |\n");
@@ -17,13 +17,13 @@ void menu()
 }
 
 
-
-int main() {
-    int password = 2024;
-    int input_password;
-    char choice;
-    int i, j;
-    int n;
+// 顯示個人風格的畫面
+int main() { 
+    int password = 2024;// 預設密碼
+    int input_password; // 用戶輸入的密碼
+    char choice;// 用戶選擇的選項
+    int i, j;// 迴圈計數器
+    int n;// 迴圈計數器
 
     // 顯示個人風格的畫面
    printf("************************************************************\n");
@@ -45,11 +45,11 @@ int main() {
 
 
     // 輸入密碼
-    for (i = 0; i < 3; i++) {//密碼輸入不超過三次 
+    for (i = 0; i < 3; i++) { // 最多輸入三次密碼
         printf("請輸入密碼 (4 位數字): ");
         scanf("%d", &input_password);
 
-        if (input_password == password) {
+        if (input_password == password) { 
             break;
         } else 
 		{
@@ -67,7 +67,7 @@ int main() {
 //以上的主程式都正確 
     {
         // 清除螢幕，並顯示主選單
-        system("cls");
+        system("cls");// 清除螢幕
         menu();
 
         printf("請輸入您的選擇 (a, b, c): ");
@@ -86,12 +86,12 @@ int main() {
                     printf("\n警告：輸入無效！請再試一次。\n");
                     
 					
-					getch();
+					getch();// 等待用戶按鍵繼續
                     break;
                 }
 
                 // 顯示直角三角形
-                system("cls");
+                system("cls");// 清除螢幕
                 for (i = 'a'; i <= choice; i++) {
                     for (j = 'a'; j <= i; j++) {
                         printf("%c ", j);
@@ -99,25 +99,25 @@ int main() {
                     printf("\n");
                 }
                 printf("\n按下任意鍵返回主選單...");
-                getch();
+                getch();// 等待用戶按鍵繼續
                 break;
 
             case 'b':
             case 'B':
-                // 清除螢幕，要求輸入1至9的整數 n
-                system("cls");
+            	// 顯示乘法表
+                system("cls");// 清除螢幕，要求輸入1至9的整數 n
                 printf("請輸入1至9的整數 n: ");
                 scanf("%d", &n);
 
                 if (n < 1 || n > 9) {
                     printf("\n警告：輸入無效！請再試一次。\n");
-                    getch();
+                    getch();// 等待用戶按鍵繼續
                     
 					break;
                 }
 
                 // 顯示乘法表
-                system("cls");
+                system("cls"); // 清除螢幕
                 printf("%d 的乘法表:\n\n", n);
                 for (i = 1; i <= n; i++) {
                     for (j = 1; j <= n; j++) {
@@ -126,7 +126,7 @@ int main() {
                     printf("\n");
                 }
                 printf("\n按下任意鍵返回主選單...");
-                getch();
+                getch();// 等待用戶按鍵繼續
                 break;
 
             case 'c':
@@ -136,19 +136,19 @@ int main() {
                 choice = getch();
 
                 if (choice == 'y' || choice == 'Y') {
-                    break;
+                    break;// 返回主選單
                 } else if (choice == 'n' || choice == 'N') {
                     printf("\n正在退出程式...");
-                    return 0;
+                    return 0;// 退出程式
                 } else {
                     printf("\n輸入無效！請再試一次。");
-                    getch();
+                    getch();// 等待用戶按鍵繼續
                     break;
                 }
 
             default:
                 printf("\n選擇無效！請再試一次。\n");
-                getch();
+                getch();// 等待用戶按鍵繼續
         }
     }
 

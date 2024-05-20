@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <stdio.h>// Include standard input-output header
+#include <stdlib.h>// Include standard library header
+#include <string.h>// Include string manipulation header
 #include <unistd.h> // Include delay function sleep()
 
 #define PASSWORD "2024" // Define password constant
@@ -57,3 +57,17 @@ int main() {
     }
      // Clear screen
       system("cls || clear");
+      
+      // Print main menu
+    printf("----------[BookingSystem]----------\n"); // Print main menu title
+    printf("|  a. Available seats             |\n"); // Print menu options
+    printf("|  b. Arrange for you             |\n");
+    printf("|  c. Choose by yourself          |\n");
+    printf("|  d. Exit                        |\n");
+    printf("------------------------------------\n"); // Print menu bottom separator
+
+    return 0;
+}
+
+      
+      

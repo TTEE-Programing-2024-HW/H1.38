@@ -55,3 +55,5 @@ int main() {
         printf("Too many incorrect attempts. Exiting...\n"); // Print message for too many incorrect attempts
         return 0;
     }
+     // Clear screen
+      system("cls || clear");

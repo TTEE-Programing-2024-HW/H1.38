@@ -53,14 +53,22 @@ int verifyPassword() {
 }
     
       
-      // Print main menu
-    printf("----------[BookingSystem]----------\n"); // Print main menu title
-    printf("|  a. Available seats             |\n"); // Print menu options
-    printf("|  b. Arrange for you             |\n");
-    printf("|  c. Choose by yourself          |\n");
-    printf("|  d. Exit                        |\n");
-    printf("------------------------------------\n"); // Print menu bottom separator
+   void displayMenu() {
+    printf("----------[BookingSystem]----------\n");
+    printf("|  a. Available seats              |\n");
+    printf("|  b. Arrange for you              |\n");
+    printf("|  c. Choose by yourself           |\n");
+    printf("|  d. Exit                         |\n");
+    printf("------------------------------------\n");
+}
 
+void initializeSeats(char seats[ROWS][COLS]) {
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            seats[i][j] = '-';
+        }
+    }
+}
     return 0;
 }
 //這次的作業很難

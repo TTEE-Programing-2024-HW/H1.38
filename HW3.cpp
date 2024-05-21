@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <conio.h> // 用於 _getch() 函數
+#include <conio.h> 
 
 #define ROWS 9
 #define COLS 9
 #define PASSWORD 2024
 #define MAX_TRIES 3
 
-void displayWelcomeScreen() 
+void displayWelcomeScreen() //personal picture
 {
     printf("************************************\n"); 
     printf("*                                  *\n"); 
@@ -77,12 +77,12 @@ void generateRandomBookings(char seats[ROWS][COLS]) {
         if (seats[row][col] == '-') {
             seats[row][col] = '*';
         } else {
-            i--; // 確保生成10個不同的預訂座位
+            i--; // 
         }
     }
 }
 
-void displaySeats(char seats[ROWS][COLS]) {
+void displaySeats(char seats[ROWS][COLS]) {  //call the function to show the seats 
     printf("  123456789\n");
     for (int i = 0; i < ROWS; i++) {
         printf("%d ", ROWS - i);
@@ -93,7 +93,7 @@ void displaySeats(char seats[ROWS][COLS]) {
     }
 }
 
-void arrangeSeats(char seats[ROWS][COLS], int numSeats) {
+void arrangeSeats(char seats[ROWS][COLS], int numSeats) {  //call the function to arrange the seats
     int found = 0;
     for (int i = 0; i < ROWS && !found; i++) {
         for (int j = 0; j < COLS - numSeats + 1 && !found; j++) {
@@ -126,7 +126,7 @@ void arrangeSeats(char seats[ROWS][COLS], int numSeats) {
             }
         }
     }
-    displaySeats(seats);
+    displaySeats(seats);  //call the function
     char response;
     printf("Are you satisfied with the arrangement? (y/n): ");
     scanf(" %c", &response);
@@ -147,7 +147,7 @@ int main() {
     int numSeats;
 
     displayWelcomeScreen();
-    if (!verifyPassword()) {
+    if (!verifyPassword()) {  //call the function to check the password
         return 0;
     }
 
@@ -155,13 +155,13 @@ int main() {
     generateRandomBookings(seats);
 
     while (1) {
-        system("cls"); // 清除螢幕
+        system("cls"); // 
         displayMenu();
         choice = _getch();
 
         switch (choice) {
         case 'a':
-            system("cls"); // 清除螢幕
+            system("cls"); //clean the screen 
             displaySeats(seats);
             printf("Press any key to return to the menu...");
             _getch();
@@ -170,7 +170,7 @@ int main() {
             printf("How many seats do you need (1-4)? ");
             scanf("%d", &numSeats);
             if (numSeats >= 1 && numSeats <= 4) {
-                system("cls"); // 清除螢幕
+                system("cls"); 
                 arrangeSeats(seats, numSeats);
                 printf("Press any key to return to the menu...");
                 _getch();

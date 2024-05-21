@@ -69,6 +69,128 @@ void initializeSeats(char seats[ROWS][COLS]) {
         }
     }
 }
+void generateRandomBookings(char seats[ROWS][COLS]) {
+    srand(time(0));
+    for (int i = 0; i < 10; i++) {
+        int row = rand() % ROWS;
+        int col = rand() % COLS;
+        if (seats[row][col] == '-') {
+            seats[row][col] = '*';
+        } else {
+            i--; // 確保生成10個不同的預訂座位
+        }
+    }
+}
+
+void displaySeats(char seats[ROWS][COLS]) {
+    printf("  123456789\n");
+    for (int i = 0; i < ROWS; i++) {
+        printf("%d ", ROWS - i);
+        for (int j = 0; j < COLS; j++) {
+            printf("%c", seats[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void arrangeSeats(char seats[ROWS][COLS], int numSeats) {
+    int found = 0;
+    for (int i = 0; i < ROWS && !found; i++) {
+        for (int j = 0; j < COLS - numSeats + 1 && !found; j++) {
+            int empty = 1;
+            for (int k = 0; k < numSeats; k++) {
+                if (seats[i][j + k] != '-') {
+                    empty = 0;
+                    break;
+                }
+            }
+            if (empty) {
+                for (int k = 0; k < numSeats; k++) {
+                    seats[i][j + k] = '@';
+                }
+                found = 1;
+            }
+        }
+    }
+    if (!found && numSeats == 4) {
+        for (int i = 0; i < ROWS - 1 && !found; i++) {
+            for (int j = 0; j < COLS && !found; j++) {
+                if (seats[i][j] == '-' && seats[i + 1][j] == '-' &&
+                    seats[i][j + 1] == '-' && seats[i + 1][j + 1] == '-') {
+                    seats[i][j] = '@';
+                    seats[i + 1][j] = '@';
+                    seats[i][j + 1] = '@';
+                    seats[i + 1][j + 1] = '@';
+                    found = 1;
+                }
+            }
+        }
+    }
+    displaySeats(seats);
+    char response;
+    printf("Are you satisfied with the arrangement? (y/n): ");
+    scanf(" %c", &response);
+    if (response == 'y' || response == 'Y') {
+        for (int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLS; j++) {
+                if (seats[i][j] == '@') {
+                    seats[i][j] = '*';
+                }
+            }
+        }
+    }
+}
+
+int main() {
+    char seats[ROWS][COLS];
+    char choice;
+    int numSeats;
+
+    displayWelcomeScreen();
+    if (!verifyPassword()) {
+        return 0;
+    }
+
+    initializeSeats(seats);
+    generateRandomBookings(seats);
+
+    while (1) {
+        system("cls"); // 清除螢幕
+        displayMenu();
+        choice = _getch();
+
+        switch (choice) {
+        case 'a':
+            system("cls"); // 清除螢幕
+            displaySeats(seats);
+            printf("Press any key to return to the menu...");
+            _getch();
+            break;
+        case 'b':
+            printf("How many seats do you need (1-4)? ");
+            scanf("%d", &numSeats);
+            if (numSeats >= 1 && numSeats <= 4) {
+                system("cls"); // 清除螢幕
+                arrangeSeats(seats, numSeats);
+                printf("Press any key to return to the menu...");
+                _getch();
+            } else {
+                printf("Invalid number of seats. Please try again.\n");
+            }
+            break;
+        case 'c':
+            printf("Choose by yourself feature not implemented.\n");
+            printf("Press any key to return to the menu...");
+            _getch();
+            break;
+        case 'd':
+            printf("Exiting program.\n");
+            return 0;
+        default:
+            printf("Invalid choice. Please try again.\n");
+            break;
+        }
+    }
     return 0;
 }
 //這次的作業很難

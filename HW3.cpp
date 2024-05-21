@@ -1,15 +1,15 @@
-#include <stdio.h>// Include standard input-output header
-#include <stdlib.h>// Include standard library header
-#include <string.h>// Include string manipulation header
-#include <unistd.h> // Include delay function sleep()
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <conio.h> // ¥Î©ó _getch() ¨ç¼Æ
 
-#define PASSWORD "2024" // Define password constant
+#define ROWS 9
+#define COLS 9
+#define PASSWORD 2024
+#define MAX_TRIES 3
 
-int main() {
-    int attempts = 0;
-    char input[5];
-
-    // Print initial interface
+void displayWelcomeScreen() 
+{
     printf("************************************\n"); 
     printf("*                                  *\n"); 
     printf("*                                  *\n");
@@ -33,30 +33,25 @@ int main() {
     printf("*                                  *\n");
     printf("*                                  *\n");
     printf("************************************\n"); // Print bottom border
+}
 
-   // Verify password
-    while (attempts < 3) {
-        printf("Enter a four-digit password: ");
-        scanf("%s", input);
-
-        if (strcmp(input, PASSWORD) == 0) {
-            printf("Welcome!\n"); // Print welcome message
-            // Delay a few seconds to display the welcome message
-            sleep(3);
-            break;
+int verifyPassword() {
+    int input, tries = 0;
+    while (tries < MAX_TRIES) {
+        printf("Please enter the 4-digit password: ");
+        scanf("%d", &input);
+        if (input == PASSWORD) {
+            printf("Welcome!\n");
+            return 1;
         } else {
-            attempts++;
-            printf("Incorrect password. Remaining attempts: %d\n", 3 - attempts); // Print incorrect password message and remaining attempts
+            printf("Incorrect password. Try again.\n");
+            tries++;
         }
     }
-
-    // Three consecutive errors
-    if (attempts == 3) {
-        printf("Too many incorrect attempts. Exiting...\n"); // Print message for too many incorrect attempts
-        return 0;
-    }
-     // Clear screen
-      system("cls || clear");
+    printf("Too many incorrect attempts. Exiting program.\n");
+    return 0;
+}
+    
       
       // Print main menu
     printf("----------[BookingSystem]----------\n"); // Print main menu title

@@ -217,4 +217,40 @@ int main()
     fflush(stdin); // 清除輸入緩衝區
     getchar(); // 等待輸入
     system("cls"); // 清除螢幕
+while (1) // 主選單循環
+    {
+        display_main_menu(); // 顯示主選單
+        char choice; // 選項變數
+        scanf(" %c", &choice); // 輸入選項
 
+        switch (choice) 
+        {
+            case 'a':
+                enter_student_grades(); // 輸入學生成績
+                break;
+            case 'b':
+                display_student_grades(); // 顯示學生成績
+                break;
+            case 'c':
+                search_student_grades(); // 搜尋學生成績
+                break;
+            case 'd':
+                grade_ranking(); // 成績排名
+                break;
+            case 'e':
+                printf("確定要退出？ (y/n): "); // 提示是否確認退出
+                char confirm; // 確認退出變數
+                scanf(" %c", &confirm); // 輸入確認選項
+                if (confirm == 'y') 
+                {
+                    return 0; // 確認退出，結束程式
+                }
+                system("cls"); // 清除螢幕
+                break;
+            default:
+                printf("無效選擇。請再試一次。\n"); // 顯示無效選擇提示
+                break;
+        }
+    }
+    return 0; // 結束程式
+}

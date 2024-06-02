@@ -184,3 +184,37 @@ void displayWelcomeScreen() // 顯示歡迎畫面
     printf("************************************\n");// 顯示個人風格
 }
 
+int main() 
+{
+    int password_attempts = 0; // 密碼嘗試次數
+    int input_password; // 輸入的密碼
+    
+    displayWelcomeScreen(); // 顯示歡迎畫面
+    
+    while (password_attempts < 3) // 最多允許3次密碼錯誤
+    {
+        printf("輸入4位數密碼: "); // 提示輸入密碼
+        scanf("%d", &input_password); // 輸入密碼
+        if (input_password == PASSWORD) // 檢查密碼是否正確
+        {
+            printf("歡迎!\n"); // 顯示歡迎訊息
+            break; // 密碼正確，跳出循環
+        }
+        else 
+        {
+            printf("密碼錯誤。請再試一次。\n"); // 顯示密碼錯誤提示
+            password_attempts++; // 增加嘗試次數
+        }
+    }
+
+    if (password_attempts == 3) 
+    {
+        printf("錯誤次數過多。程式將結束。\n"); // 顯示錯誤次數過多提示
+        return 0; // 密碼嘗試次數過多，結束程式
+    }
+
+    
+    fflush(stdin); // 清除輸入緩衝區
+    getchar(); // 等待輸入
+    system("cls"); // 清除螢幕
+

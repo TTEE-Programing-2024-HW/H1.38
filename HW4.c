@@ -129,3 +129,32 @@ void search_student_grades()
     getchar(); // 等待輸入
     system("cls"); // 清除螢幕
 }
+
+void grade_ranking() 
+{
+    system("cls"); // 清除螢幕
+    for (int i = 0; i < student_count - 1; i++) 
+    {
+        for (int j = 0; j < student_count - i - 1; j++) 
+        {
+            if (students[j].average < students[j + 1].average) // 比較學生的平均成績
+            {
+                Student temp = students[j]; // 暫存當前學生資料
+                students[j] = students[j + 1]; // 交換學生資料
+                students[j + 1] = temp; // 完成交換
+            }
+        }
+    }
+    for (int i = 0; i < student_count; i++) // 迴圈顯示排序後的學生資料
+    {
+        printf("姓名: %s\n", students[i].name); // 顯示學生姓名
+        printf("學號: %d\n", students[i].id); // 顯示學生學號
+        printf("平均: %.1f\n\n", students[i].average); // 顯示平均成績
+    }
+    printf("按任意鍵返回主選單..."); // 提示按任意鍵返回主選單
+    getchar(); // 等待輸入
+    getchar(); // 等待輸入
+    system("cls"); // 清除螢幕
+}
+
+

@@ -19,13 +19,6 @@ Student;
 Student students[MAX_STUDENTS]; // 儲存學生資料的陣列
 int student_count = 0;          // 目前學生數量
 
-/*
-// 清除螢幕
-void clear_screen() {
-    system("clear || cls");
-}
-*/
-
 void display_main_menu() 
 {
     printf("----------[Grade System]----------\n"); // 顯示主選單標題
@@ -39,7 +32,7 @@ void display_main_menu()
 
 void enter_student_grades() 
 {
-    int n; // 學生數量變數
+    int n, i; // 學生數量變數
     system("cls"); // 清除螢幕
     printf("輸入學生數量 (5-10): "); // 提示輸入學生數量
     while (scanf("%d", &n) != 1 || n < 5 || n > 10) // 檢查輸入是否為5到10之間的數字
@@ -48,8 +41,9 @@ void enter_student_grades()
         while (getchar() != '\n'); // 清除緩衝區
     }
     student_count = n; // 設定學生數量
-    for (int i = 0; i < n; i++) // 迴圈輸入每個學生的資料
-    {
+    for (i = 0; i < n; i++) // 迴圈輸入每個學生的資料
+    
+	{
         printf("輸入學生%d的姓名: ", i + 1); // 提示輸入學生姓名
         scanf("%s", students[i].name); // 輸入學生姓名
         printf("輸入學生%d的學號 (6位數): ", i + 1); // 提示輸入學生學號
@@ -83,8 +77,9 @@ void enter_student_grades()
 
 void display_student_grades() 
 {
+	int i; // 迴圈變數
     system("cls"); // 清除螢幕
-    for (int i = 0; i < student_count; i++) // 迴圈顯示每個學生的資料
+    for (i = 0; i < student_count; i++) // 迴圈顯示每個學生的資料
     {
         printf("姓名: %s\n", students[i].name); // 顯示學生姓名
         printf("學號: %d\n", students[i].id); // 顯示學生學號
@@ -102,11 +97,11 @@ void display_student_grades()
 void search_student_grades() 
 {
     char search_name[50]; // 儲存搜尋姓名的變數
+    int i, found = 0; // 迴圈變數和找到標誌
     system("cls"); // 清除螢幕
     printf("輸入要搜尋的姓名: "); // 提示輸入要搜尋的姓名
     scanf("%s", search_name); // 輸入要搜尋的姓名
-    int found = 0; // 設定找到的標誌
-    for (int i = 0; i < student_count; i++) // 迴圈查找學生
+    for (i = 0; i < student_count; i++) // 迴圈查找學生
     {
         if (strcmp(students[i].name, search_name) == 0) // 比較姓名是否相符
         {
@@ -132,10 +127,11 @@ void search_student_grades()
 
 void grade_ranking() 
 {
+	int i, j; // 迴圈變數
     system("cls"); // 清除螢幕
-    for (int i = 0; i < student_count - 1; i++) 
+   for (i = 0; i < student_count - 1; i++) 
     {
-        for (int j = 0; j < student_count - i - 1; j++) 
+        for (j = 0; j < student_count - i - 1; j++)
         {
             if (students[j].average < students[j + 1].average) // 比較學生的平均成績
             {
@@ -145,7 +141,7 @@ void grade_ranking()
             }
         }
     }
-    for (int i = 0; i < student_count; i++) // 迴圈顯示排序後的學生資料
+    for ( i = 0; i < student_count; i++) // 迴圈顯示排序後的學生資料
     {
         printf("姓名: %s\n", students[i].name); // 顯示學生姓名
         printf("學號: %d\n", students[i].id); // 顯示學生學號
@@ -254,3 +250,6 @@ while (1) // 主選單循環
     }
     return 0; // 結束程式
 }
+//我感覺這次的作業比較簡單，我比較快完成，我覺得打這幾次作業真的讓我對github更熟悉操作更快速
+//我覺得這次的作業相對之前幾次我是做得比較之前好的 
+//代表我真的有慢慢再進步我覺得很好 

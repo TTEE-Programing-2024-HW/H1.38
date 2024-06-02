@@ -81,3 +81,20 @@ void enter_student_grades()
     system("cls"); // 清除螢幕
 }
 
+void display_student_grades() 
+{
+    system("cls"); // 清除螢幕
+    for (int i = 0; i < student_count; i++) // 迴圈顯示每個學生的資料
+    {
+        printf("姓名: %s\n", students[i].name); // 顯示學生姓名
+        printf("學號: %d\n", students[i].id); // 顯示學生學號
+        printf("數學: %d\n", students[i].math); // 顯示數學成績
+        printf("物理: %d\n", students[i].physics); // 顯示物理成績
+        printf("英文: %d\n", students[i].english); // 顯示英文成績
+        printf("平均: %.1f\n\n", students[i].average); // 顯示平均成績
+    }
+    printf("按任意鍵返回主選單..."); // 提示按任意鍵返回主選單
+    getchar(); // 等待輸入
+    getchar(); // 等待輸入
+    system("cls"); // 清除螢幕
+}

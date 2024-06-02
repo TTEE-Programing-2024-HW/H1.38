@@ -25,3 +25,14 @@ void clear_screen() {
     system("clear || cls");
 }
 */
+
+void display_main_menu() 
+{
+    printf("----------[Grade System]----------\n"); // 顯示主選單標題
+    printf("|  a. Enter student grades        |\n"); // 顯示選項 a
+    printf("|  b. Display student grades      |\n"); // 顯示選項 b
+    printf("|  c. Search for student grades   |\n"); // 顯示選項 c
+    printf("|  d. Grade ranking               |\n"); // 顯示選項 d
+    printf("|  e. Exit system                 |\n"); // 顯示選項 e
+    printf("----------------------------------\n"); // 顯示主選單底部
+}

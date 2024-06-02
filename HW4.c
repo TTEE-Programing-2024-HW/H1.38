@@ -157,4 +157,30 @@ void grade_ranking()
     system("cls"); // 清除螢幕
 }
 
+void displayWelcomeScreen() // 顯示歡迎畫面
+{
+    printf("************************************\n");// 顯示個人風格 
+    printf("*last homework                     *\n");// 顯示個人風格
+    printf("*                                  *\n");// 顯示個人風格
+    printf("*last homework                     *\n");// 顯示個人風格
+    printf("*                                  *\n");// 顯示個人風格
+    printf("*last homework                     *\n");// 顯示個人風格
+    printf("*                                  *\n");// 顯示個人風格
+    printf("*last homework                     *\n");// 顯示個人風格
+    printf("*                                  *\n");// 顯示個人風格
+    printf("*last homework                     *\n");// 顯示個人風格
+    printf("*                                  *\n");// 顯示個人風格
+    printf("*last homework                     *\n");// 顯示個人風格
+    printf("*                                  *\n");// 顯示個人風格
+    printf("*last homework                     *\n");// 顯示個人風格
+    printf("*                                  *\n");// 顯示個人風格
+    printf("*last homework                     *\n");// 顯示個人風格
+    printf("*                                  *\n");// 顯示個人風格
+    printf("*last homework                     *\n");// 顯示個人風格
+    printf("*                                  *\n");// 顯示個人風格
+    printf("*last homework                     *\n");// 顯示個人風格
+    printf("*                                  *\n");// 顯示個人風格
+    printf("*last homework                     *\n");// 顯示個人風格
+    printf("************************************\n");// 顯示個人風格
+}
 

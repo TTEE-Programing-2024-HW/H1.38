@@ -19,14 +19,6 @@ Student;
 Student students[MAX_STUDENTS]; // 儲存學生資料的陣列
 int student_count = 0;          // 目前學生數量
 
-//解決HW4.c被修改但沒有添加到暫存區的問題
-//提交暫存區中的變更，並添加提交訊息
-//測試-6
-//git push HW4.c，這不是一個正確的用法。
-//git push 命令應該是用來推送分支到遠程倉庫的，
-//而不是推送單個文件。
-//以後應該使用git push origin main 
- 
 /*
 // 清除螢幕
 void clear_screen() {

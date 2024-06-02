@@ -98,3 +98,34 @@ void display_student_grades()
     getchar(); // 等待輸入
     system("cls"); // 清除螢幕
 }
+
+void search_student_grades() 
+{
+    char search_name[50]; // 儲存搜尋姓名的變數
+    system("cls"); // 清除螢幕
+    printf("輸入要搜尋的姓名: "); // 提示輸入要搜尋的姓名
+    scanf("%s", search_name); // 輸入要搜尋的姓名
+    int found = 0; // 設定找到的標誌
+    for (int i = 0; i < student_count; i++) // 迴圈查找學生
+    {
+        if (strcmp(students[i].name, search_name) == 0) // 比較姓名是否相符
+        {
+            printf("姓名: %s\n", students[i].name); // 顯示學生姓名
+            printf("學號: %d\n", students[i].id); // 顯示學生學號
+            printf("數學: %d\n", students[i].math); // 顯示數學成績
+            printf("物理: %d\n", students[i].physics); // 顯示物理成績
+            printf("英文: %d\n", students[i].english); // 顯示英文成績
+            printf("平均: %.1f\n", students[i].average); // 顯示平均成績
+            found = 1; // 設定找到的標誌
+            break; // 跳出循環
+        }
+    }
+    if (!found) // 如果沒有找到
+    {
+        printf("資料不存在。\n"); // 顯示資料不存在
+    }
+    printf("按任意鍵返回主選單..."); // 提示按任意鍵返回主選單
+    getchar(); // 等待輸入
+    getchar(); // 等待輸入
+    system("cls"); // 清除螢幕
+}
